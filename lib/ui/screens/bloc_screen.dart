@@ -7,7 +7,7 @@ import 'package:state_managements_apps/bloc/counter_event.dart';
 import 'package:state_managements_apps/ui/widgets/assigned_tasks_list.dart';
 import 'package:state_managements_apps/utils/constants.dart';
 
-class HomeBloc extends StatelessWidget {
+class BlocScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
