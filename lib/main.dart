@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
+import 'package:state_managements_apps/provider/counter.dart';
+import 'package:state_managements_apps/ui/screens/provider_screen.dart';
 import 'bloc/counter_bloc.dart';
 import 'ui/screens/bloc_screen.dart';
 import 'utils/app_theme.dart';
@@ -19,11 +22,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: appTheme(),
       debugShowCheckedModeBanner: false,
-      home:
-      BlocProvider<CounterBloc>(
-        create: (context) => CounterBloc(0),
-        child: BlocScreen(),
-      ),
+      home:MultiProvider(
+          providers: [ChangeNotifierProvider(create: (_) => Counter(),),],
+          child: ProviderScreen()),
+//      BlocProvider<CounterBloc>(
+//        create: (context) => CounterBloc(0),
+//        child: BlocScreen(),
+//      ),
 
     );
   }

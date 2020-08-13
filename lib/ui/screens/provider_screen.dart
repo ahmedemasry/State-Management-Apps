@@ -5,10 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:state_managements_apps/bloc/counter_bloc.dart';
 import 'package:state_managements_apps/bloc/counter_event.dart';
+import 'package:state_managements_apps/provider/counter.dart';
 import 'package:state_managements_apps/ui/widgets/assigned_tasks_list.dart';
 import 'package:state_managements_apps/utils/constants.dart';
 
-class BlockScreen extends StatelessWidget {
+class ProviderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +25,11 @@ class BlockScreen extends StatelessWidget {
 
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    IconButton(color:Colors.red, icon: Icon(Icons.remove),onPressed: () {} ,),
+                    IconButton(color:Colors.red, icon: Icon(Icons.remove),onPressed: () => context.watch<Counter>().increment() ,),
 
-                    Text("a"),
+                    Text(context.watch<Counter>().number.toString()),
 
-                    IconButton(color: Colors.green,icon: Icon(Icons.add), onPressed: () {} ,),
+                    IconButton(color: Colors.green,icon: Icon(Icons.add), onPressed: ()  => context.watch<Counter>().decrement() ,),
                   ],
 
                 ),
