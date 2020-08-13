@@ -7,7 +7,7 @@ import 'package:state_managements_apps/bloc/counter_event.dart';
 import 'package:state_managements_apps/ui/widgets/assigned_tasks_list.dart';
 import 'package:state_managements_apps/utils/constants.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeBloc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
             child: Container(
               child: Row(
 
-                mainAxisAlignment: MainAxisAlignment.spaceEvenlyلهف ,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   IconButton(color:Colors.red, icon: Icon(Icons.remove),onPressed: () => cBloc.add(CounterEvent.decrement),),
 
