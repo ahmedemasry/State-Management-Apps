@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class Counter extends ChangeNotifier{
-  int number;
+  int number = 0;
 
   increment(){
     number++;

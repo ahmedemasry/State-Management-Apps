@@ -7,13 +7,16 @@ import 'bloc/counter_bloc.dart';
 import 'ui/screens/bloc_screen.dart';
 import 'utils/app_theme.dart';
 
-
-
-
 void main() {
   runApp(MyApp());
+//  runApp(
+//      MultiProvider(
+//        providers: [
+//          ChangeNotifierProvider(create: (_) => Counter()),
+//        ],
+//        child: MyApp(),
+//      ),);
 }
-
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -22,16 +25,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: appTheme(),
       debugShowCheckedModeBanner: false,
-      home:MultiProvider(
-          providers: [ChangeNotifierProvider(create: (_) => Counter(),),],
-          child: ProviderScreen()),
+      home: ProviderScreen(),
 //      BlocProvider<CounterBloc>(
 //        create: (context) => CounterBloc(0),
 //        child: BlocScreen(),
 //      ),
-
     );
   }
-
-
 }

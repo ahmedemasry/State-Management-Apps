@@ -10,7 +10,6 @@ import 'package:state_managements_apps/ui/widgets/assigned_tasks_list.dart';
 import 'package:state_managements_apps/utils/constants.dart';
 
 class ProviderScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,19 +19,28 @@ class ProviderScreen extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              child: ChangeNotifierProvider(
-                child: Row(
-
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    IconButton(color:Colors.red, icon: Icon(Icons.remove),onPressed: () => context.watch<Counter>().increment() ,),
-
-                    Text(context.watch<Counter>().number.toString()),
-
-                    IconButton(color: Colors.green,icon: Icon(Icons.add), onPressed: ()  => context.watch<Counter>().decrement() ,),
-                  ],
-
-                ),
+              child: ChangeNotifierProvider<Counter>(
+                create: (_) => Counter(),
+                builder: (context, child) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      IconButton(
+                        color: Colors.red,
+                        icon: Icon(Icons.remove),
+                        onPressed: () =>
+                            Provider.of<Counter>(context,listen: false).decrement(),
+                      ),
+                      Text(Provider.of<Counter>(context).number.toString()),
+                      IconButton(
+                        color: Colors.green,
+                        icon: Icon(Icons.add),
+                        onPressed: () =>
+                            Provider.of<Counter>(context,listen: false).increment(),
+                      ),
+                    ],
+                  );
+                },
               ),
             ),
           ),
